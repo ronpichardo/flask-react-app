@@ -17,11 +17,12 @@ def index():
   else:
     response = "No items found"
   
-  return jsonify({ 'result': response })
+  print(response)
+  
+  return { 'result': response }
 
-@app.route('/time')
-def get_current_time():
-  return { 'time': time.time() }
-
+@app.route('/data')
+def get_data():
+  return { 'result': 'Hello World'}
 if __name__ == '__main__':
   app.run()
