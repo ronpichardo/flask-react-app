@@ -7,7 +7,7 @@ app.config['MONGO_URI'] = os.getenv('MONGODB_URL')
 mongodb_client = PyMongo(app)
 db = mongodb_client.db
 
-@app.route('/')
+@app.route('/items')
 def index():
   flask_items = db.flask_api.find()
   response = []
