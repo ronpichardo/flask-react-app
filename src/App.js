@@ -7,12 +7,11 @@ function App() {
   const [initResult, setInitResult] = useState(0);
 
   useEffect(() => {
-    fetch('/').then(res => res.json()).then(data => {
+    fetch('/items').then(res => res.json()).then(data => {
       const { result } = data;
-      console.log(result)
       setInitResult(result);
-    }, []);
-  });
+    });
+  }, []);
 
   const onClickEvent = () => {
     fetch('/data').then(res => res.json()).then(data => {
@@ -28,7 +27,7 @@ function App() {
         <div>[TODO] - Results from the server will be displayed here</div>
         
         <button className="button" onClick={onClickEvent}>Submit</button>
-        <p>Button clicked sumbit response: {msgResponse}</p>
+        <p>Button clicked submit response: {msgResponse}</p>
       </header>
     </div>
   );
