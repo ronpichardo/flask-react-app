@@ -17,12 +17,16 @@ def index():
   else:
     response = "No items found"
   
-  print(response)
-  
   return { 'result': response }
 
 @app.route('/data')
 def get_data():
   return { 'result': 'Hello World'}
+
+@app.route('/insert')
+def insert_data():
+  db.flask_api.insert({ 'title': 'my title', 'body': 'my title body' })
+  return { 'result': 'success' }
+  
 if __name__ == '__main__':
   app.run()
